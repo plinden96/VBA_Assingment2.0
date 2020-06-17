@@ -1,0 +1,41 @@
+Sub StockChallenge()
+
+Dim Ticker As String
+Dim Ticker_Summary As Double
+Dim Yearly_Change As Double
+Dim Total_Stock_Volume As Double
+
+Total_Stock_Volume = 0
+
+Ticker_Summary = 2
+
+For i = 2 To 70926
+    
+    If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
+    
+        Ticker = Cells(i, 1).Value
+        Total_Stock_Volume = Total_Stock_Volume + Cells(i, 7).Value
+        Range("I" & Ticker_Summary).Value = Ticker
+        Range("L" & Ticker_Summary).Value = Total_Stock_Volume
+        
+        Ticker_Summary = Ticker_Summary + 1
+        
+        Total_Stock_Volume = 0
+        
+        Else
+        Total_Stock_Volume = Total_Stock_Volume + Cells(i, 3).Value
+        
+        End If
+        
+        Next i
+        
+
+        
+        
+      
+        
+
+
+
+
+End Sub
